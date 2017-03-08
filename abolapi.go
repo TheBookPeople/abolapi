@@ -2224,8 +2224,8 @@ func (x *AbolapiSoap12) AbolTrackPackage(ctx context.Context, request AbolTrackP
 }
 
 // AbolVoidPackage - Void package with abolapi
-func (x *AbolapiSoap12) AbolVoidPackage(ctx context.Context, request AbolVoidPackageSoapIn) (*AbolVoidPackageSoapOut, error) {
-	response := new(AbolVoidPackageSoapOut)
+func (x *AbolapiSoap12) AbolVoidPackage(ctx context.Context, request *AbolVoidPackageSoapIn) (*AbolVoidPackageResponseElement, error) {
+	response := new(AbolVoidPackageResponseElement)
 	action := "http://abolsoft.com/webservices/AbolVoidPackage"
 	err := x.client.Call(ctx, action, request, response)
 	if err != nil {
@@ -2235,8 +2235,8 @@ func (x *AbolapiSoap12) AbolVoidPackage(ctx context.Context, request AbolVoidPac
 }
 
 // AbolCloseOut - Perform CloseOut with abolapi
-func (x *AbolapiSoap12) AbolCloseOut(ctx context.Context, request AbolCloseOutSoapIn) (*AbolCloseOutSoapOut, error) {
-	response := new(AbolCloseOutSoapOut)
+func (x *AbolapiSoap12) AbolCloseOut(ctx context.Context, request *AbolCloseOutSoapIn) (*AbolCloseOutResponseElement, error) {
+	response := new(AbolCloseOutResponseElement)
 	action := "http://abolsoft.com/webservices/AbolCloseOut"
 	err := x.client.Call(ctx, action, request, response)
 	if err != nil {
