@@ -1527,7 +1527,7 @@ type AbolCloseoutResult struct {
 	Error              *CloseOutError    `xml:"Error,omitempty"`
 	ConfirmationNumber string            `xml:"ConfirmationNumber,omitempty"`
 	Version            string            `xml:"Version,omitempty"`
-	ManifestDetailss   []CloseOutDetails `xml:"ManifestDetails,omitempty"`
+	ManifestDetails    []CloseOutDetails `xml:"ManifestDetails,omitempty"`
 }
 
 type CloseOutError struct {
