@@ -46,6 +46,16 @@ type AbolShipmentSoapIn struct {
 	Parameters AbolShipmentElement
 }
 
+func (x AbolCloseOutSoapIn) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	log.Println(start)
+	var err error
+	err = e.Encode(x.Parameters)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
 func (x AbolSimpleShipmentSoapIn) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	log.Println(start)
 	var err error
@@ -183,11 +193,12 @@ type AbolVoidPackageResponseElement struct {
 }
 
 type AbolCloseOutElement struct {
-	AbolApiCloseOutRequest AbolApiCloseOutRequest
+	XMLName                string                 `xml:"http://abolsoft.com/webservices/ AbolCloseOut,omitempty"`
+	AbolApiCloseOutRequest AbolApiCloseOutRequest `xml:"AbolCloseout,omitempty"`
 }
 
 type AbolCloseOutResponseElement struct {
-	AbolApiCloseOutResponse AbolApiCloseOutResponse
+	AbolApiCloseOutResponse AbolApiCloseOutResponse `xml:"http://abolsoft.com/webservices/ AbolCloseoutResponse,omitempty"`
 }
 
 type AbolClassifyElement struct {
@@ -1501,7 +1512,7 @@ type ResponseError struct {
 }
 
 type AbolApiCloseOutRequest struct {
-	Request *AbolApiCloseOut_Request `xml:"Request,omitempty"`
+	Request *AbolApiCloseOut_Request `xml:"request,omitempty"`
 }
 
 type AbolApiCloseOut_Request struct {
@@ -1510,7 +1521,7 @@ type AbolApiCloseOut_Request struct {
 }
 
 type Closeout struct {
-	RequestType          *CloseoutRequestType  `xml:"RequestType,omitempty"`
+	RequestType          CloseoutRequestType   `xml:"RequestType,omitempty"`
 	RequestDetail        string                `xml:"RequestDetail,omitempty"`
 	CloseOutTrackingNbrs *CloseOutTrackingNbrs `xml:"CloseOutTrackingNbrs,omitempty"`
 }

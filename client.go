@@ -57,6 +57,7 @@ func (c *Client) CloseOut(ctx context.Context, trackingNo string) (*AbolCloseout
 				Request: &AbolApiCloseOut_Request{
 					Authentication: c.authentication(),
 					Closeout: &Closeout{
+						RequestType: CloseoutRequestType_TRACKINGNBR,
 						CloseOutTrackingNbrs: &CloseOutTrackingNbrs{
 							TrackingNbrs: []string{trackingNo},
 						},
