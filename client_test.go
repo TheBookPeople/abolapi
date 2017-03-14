@@ -16,11 +16,13 @@ var (
 
 var simpleShipment = &SimpleShipment{
 	/* ServiceCode options:
-	Spring Packet Light 1356
 	Spring Packet 1351
 	Spring Packet Plus 1352
 	Spring Parcel 1353				// What happened to 1355?
-	Spring Express 1354 */
+	Spring Express 1354
+	Spring Packet Light 1356
+	Spring Packet Tracked 1357
+	*/
 	ServiceCode:        "1351",                             // TODO
 	BillType:           100,                                // 100 = Not specified // TODO
 	DriverInstructions: "delivery instructions for driver", // TODO
