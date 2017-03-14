@@ -101,17 +101,9 @@ Loop:
 
 				consumed = true
 			} else {
-				log.Println("normal element", se.Name, se)
 				if err = d.DecodeElement(b.Content, &se); err != nil {
 					return err
 				}
-				log.Println("cntent", b.Content, se.Name, reflect.TypeOf(b.Content))
-				if r, ok := b.Content.(*AbolSimpleShipmentResponseElement); ok {
-					log.Println("yes", r)
-				} else {
-					log.Println("no")
-				}
-
 				consumed = true
 			}
 		case xml.EndElement:
